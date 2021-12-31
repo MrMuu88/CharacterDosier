@@ -8,6 +8,8 @@
 		public int TotalHitDice {get;set;}
 		public int RemainingHitDice {get;set;}
 		public int DeathSaves { get; set; }
+
+		public Character Character { get; set; }
 	}
 
 }

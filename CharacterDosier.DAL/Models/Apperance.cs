@@ -1,6 +1,6 @@
 ﻿namespace CharacterDosier.DAL.Models
 {
-	public class Apperance
+	public class Apperance:BaseModel
 	{
 		public byte[] Image { get; set; }
 		public int Age { get; set; }
@@ -9,5 +9,7 @@
 		public string Eyes { get; set; }
 		public string Skin { get; set; }
 		public string Hail { get; set; }
+
+		public Character Character { get; set; }
 	}
 }

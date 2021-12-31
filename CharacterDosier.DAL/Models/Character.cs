@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CharacterDosier.DAL.Models
 {
@@ -18,7 +19,7 @@ namespace CharacterDosier.DAL.Models
 		public PersonalityTraits Traits { get; set; }
 		public Apperance Apperance {get;set;}
 
-		public Combat Combat { get; internal set; } = new();
+		public CombatAbilities Combat { get; internal set; } = new();
 		public Health Health { get; internal set; } = new();
 		public SpellCasting SpellCasting { get; internal set; } = new();
 
@@ -29,7 +30,6 @@ namespace CharacterDosier.DAL.Models
 
 		public IReadOnlyDictionary<Ability, AbilityModel> Abilities { get => abilities; }
 
-		//JSON field in DB
 		internal Dictionary<Ability, AbilityModel> abilities = new() {
 			{ Ability.Strength, new AbilityModel(Ability.Strength) },
 			{ Ability.Dexterity, new AbilityModel(Ability.Dexterity) },
@@ -45,6 +45,8 @@ namespace CharacterDosier.DAL.Models
 		public Wealth Wealth { get; internal set; } = new();
 
 		public List<Equipment> Equipment { get;internal set; } = new();
+		public IReadOnlyList<Weapon> Weapons { get => Equipment.Where(e => e is Weapon).Cast<Weapon>().ToList(); }
+		public IReadOnlyList<Armor> Armor { get => Equipment.Where(e => e is Armor).Cast<Armor>().ToList(); }
 	}
 
 }
