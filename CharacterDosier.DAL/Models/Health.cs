@@ -1,6 +1,6 @@
 ﻿namespace CharacterDosier.DAL.Models
 {
-	public class Health {
+	public class Health:BaseModel {
 		public int MaxHP { get; set; }
 		public int CurrentHP { get; set; }
 		public int TemporaryHP { get; set; }

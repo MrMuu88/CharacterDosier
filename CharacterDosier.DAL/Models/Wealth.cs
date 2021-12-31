@@ -1,6 +1,6 @@
 ﻿namespace CharacterDosier.DAL.Models
 {
-	public class Wealth
+	public class Wealth:BaseModel
 	{
 		public int Platinum { get; set; }
 		public int Elerium { get; set; }
