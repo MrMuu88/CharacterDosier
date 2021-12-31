@@ -1,5 +1,8 @@
 ﻿using CharacterDosier.DAL.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace CharacterDosier.DAL.Database.Configurations
 {
@@ -10,13 +13,29 @@ namespace CharacterDosier.DAL.Database.Configurations
 		{
 			base.Configure(builder);
 			builder.Ignore(ch => ch.Abilities);
-			builder.Ignore(ch => ch.abilities);
-			builder.Ignore(ch => ch.Proficiencies);
-			builder.Ignore(ch => ch.Languages);
-			builder.Ignore(ch => ch.Skills);
-			builder.Ignore(ch => ch.Wealth);
 			builder.Ignore(ch => ch.Weapons);
 			builder.Ignore(ch => ch.Armor);
+
+			builder.Property(ch => ch._Abilities).HasConversion(
+				toDb => JsonConvert.SerializeObject(toDb, Formatting.Indented),
+				fromDb => JsonConvert.DeserializeObject<Dictionary<Ability, AbilityModel>>(fromDb));
+
+			builder.Property(ch => ch.Proficiencies).HasConversion(
+				toDb => JsonConvert.SerializeObject(toDb, Formatting.Indented),
+				fromDb => JsonConvert.DeserializeObject<List<string>>(fromDb));
+			
+			builder.Property(ch => ch.Languages).HasConversion(
+				toDb => JsonConvert.SerializeObject(toDb, Formatting.Indented),
+				fromDb => JsonConvert.DeserializeObject<List<string>>(fromDb));
+
+			builder.Property(ch => ch.Skills).HasConversion(
+				toDb => JsonConvert.SerializeObject(toDb, Formatting.Indented),
+				fromDb => JsonConvert.DeserializeObject<List<Skill>>(fromDb));
+
+			builder.Property(ch => ch.Wealth).HasConversion(
+				toDb => JsonConvert.SerializeObject(toDb, Formatting.Indented),
+				fromDb => JsonConvert.DeserializeObject<Wealth>(fromDb));
+
 
 			builder.HasOne(ch => ch.Apperance)
 				.WithOne(a => a.Character)

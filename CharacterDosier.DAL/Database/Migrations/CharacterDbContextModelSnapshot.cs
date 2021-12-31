@@ -75,6 +75,9 @@ namespace CharacterDosier.DAL.Database.Migrations
                     b.Property<int>("Inpiration")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Languages")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("Level")
                         .HasColumnType("INTEGER");
 
@@ -84,7 +87,19 @@ namespace CharacterDosier.DAL.Database.Migrations
                     b.Property<int>("Proficency")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Proficiencies")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Race")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Skills")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Wealth")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("_Abilities")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -127,7 +142,7 @@ namespace CharacterDosier.DAL.Database.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CharacterId1")
+                    b.Property<int?>("CharacterId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
@@ -141,7 +156,7 @@ namespace CharacterDosier.DAL.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CharacterId1");
+                    b.HasIndex("CharacterId");
 
                     b.HasIndex("ValueId");
 
@@ -214,8 +229,20 @@ namespace CharacterDosier.DAL.Database.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Bonds")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("CharacterId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Flaws")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Ideals")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Traits")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -300,7 +327,7 @@ namespace CharacterDosier.DAL.Database.Migrations
                 {
                     b.HasOne("CharacterDosier.DAL.Models.Character", "Character")
                         .WithMany("Equipment")
-                        .HasForeignKey("CharacterId1");
+                        .HasForeignKey("CharacterId");
 
                     b.HasOne("CharacterDosier.DAL.Models.Wealth", "Value")
                         .WithMany()

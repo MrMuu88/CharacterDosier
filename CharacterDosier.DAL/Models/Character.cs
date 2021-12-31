@@ -28,9 +28,10 @@ namespace CharacterDosier.DAL.Models
 		public List<string> Proficiencies { get; private set; } = new();
 		public List<string> Languages { get; private set; } = new();
 
-		public IReadOnlyDictionary<Ability, AbilityModel> Abilities { get => abilities; }
+		public IReadOnlyDictionary<Ability, AbilityModel> Abilities { get => _Abilities; }
 
-		internal Dictionary<Ability, AbilityModel> abilities = new() {
+		internal Dictionary<Ability, AbilityModel> _Abilities { get; set; } = new()
+		{
 			{ Ability.Strength, new AbilityModel(Ability.Strength) },
 			{ Ability.Dexterity, new AbilityModel(Ability.Dexterity) },
 			{ Ability.Constitution, new AbilityModel(Ability.Constitution) },

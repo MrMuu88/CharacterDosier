@@ -21,7 +21,12 @@ namespace CharacterDosier.DAL.Database.Migrations
                     Background = table.Column<string>(type: "TEXT", nullable: true),
                     Aligment = table.Column<string>(type: "TEXT", nullable: true),
                     Inpiration = table.Column<int>(type: "INTEGER", nullable: false),
-                    Proficency = table.Column<int>(type: "INTEGER", nullable: false)
+                    Proficency = table.Column<int>(type: "INTEGER", nullable: false),
+                    Proficiencies = table.Column<string>(type: "TEXT", nullable: true),
+                    Languages = table.Column<string>(type: "TEXT", nullable: true),
+                    _Abilities = table.Column<string>(type: "TEXT", nullable: true),
+                    Skills = table.Column<string>(type: "TEXT", nullable: true),
+                    Wealth = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -146,6 +151,10 @@ namespace CharacterDosier.DAL.Database.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Traits = table.Column<string>(type: "TEXT", nullable: true),
+                    Ideals = table.Column<string>(type: "TEXT", nullable: true),
+                    Bonds = table.Column<string>(type: "TEXT", nullable: true),
+                    Flaws = table.Column<string>(type: "TEXT", nullable: true),
                     CharacterId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -190,14 +199,14 @@ namespace CharacterDosier.DAL.Database.Migrations
                     Weight = table.Column<int>(type: "INTEGER", nullable: false),
                     Amount = table.Column<int>(type: "INTEGER", nullable: false),
                     ValueId = table.Column<int>(type: "INTEGER", nullable: true),
-                    CharacterId1 = table.Column<int>(type: "INTEGER", nullable: true)
+                    CharacterId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Equipments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Equipments_Characters_CharacterId1",
-                        column: x => x.CharacterId1,
+                        name: "FK_Equipments_Characters_CharacterId",
+                        column: x => x.CharacterId,
                         principalTable: "Characters",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -222,9 +231,9 @@ namespace CharacterDosier.DAL.Database.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Equipments_CharacterId1",
+                name: "IX_Equipments_CharacterId",
                 table: "Equipments",
-                column: "CharacterId1");
+                column: "CharacterId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Equipments_ValueId",
