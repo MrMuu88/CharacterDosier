@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CharacterDosier.DAL.Database.Migrations
 {
     [DbContext(typeof(CharacterDbContext))]
-    [Migration("20211231164224_init")]
+    [Migration("20211231171749_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,7 +74,7 @@ namespace CharacterDosier.DAL.Database.Migrations
                     b.Property<int>("Experience")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Inpiration")
+                    b.Property<int>("Inspiration")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Languages")

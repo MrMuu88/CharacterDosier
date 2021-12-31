@@ -14,7 +14,7 @@ namespace CharacterDosier.DAL.Models
 		public string Background { get; set; }
 		public string Aligment { get; set; }
 
-		public int Inpiration { get; set; }
+		public int Inspiration { get; set; }
 		public int Proficency { get; set; }
 		public Personality Personality { get; set; }
 		public Apperance Apperance {get;set;}

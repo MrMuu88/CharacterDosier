@@ -72,7 +72,7 @@ namespace CharacterDosier.DAL.Database.Migrations
                     b.Property<int>("Experience")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Inpiration")
+                    b.Property<int>("Inspiration")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Languages")

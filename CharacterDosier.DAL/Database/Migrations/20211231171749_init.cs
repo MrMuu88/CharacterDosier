@@ -20,7 +20,7 @@ namespace CharacterDosier.DAL.Database.Migrations
                     Experience = table.Column<int>(type: "INTEGER", nullable: false),
                     Background = table.Column<string>(type: "TEXT", nullable: true),
                     Aligment = table.Column<string>(type: "TEXT", nullable: true),
-                    Inpiration = table.Column<int>(type: "INTEGER", nullable: false),
+                    Inspiration = table.Column<int>(type: "INTEGER", nullable: false),
                     Proficency = table.Column<int>(type: "INTEGER", nullable: false),
                     Proficiencies = table.Column<string>(type: "TEXT", nullable: true),
                     Languages = table.Column<string>(type: "TEXT", nullable: true),
