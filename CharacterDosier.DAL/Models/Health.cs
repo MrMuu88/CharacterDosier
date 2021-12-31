@@ -10,6 +10,7 @@
 		public int DeathSaves { get; set; }
 
 		public Character Character { get; set; }
+		public int CharacterId { get; internal set; }
 	}
 
 }

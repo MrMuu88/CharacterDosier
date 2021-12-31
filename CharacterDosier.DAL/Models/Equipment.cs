@@ -1,6 +1,6 @@
 ﻿namespace CharacterDosier.DAL.Models
 {
-	public class Equipment
+	public class Equipment:BaseModel
 	{
 		public string Name { get; set; }
 		public int Weight { get; set; }

@@ -16,7 +16,7 @@ namespace CharacterDosier.DAL.Models
 
 		public int Inpiration { get; set; }
 		public int Proficency { get; set; }
-		public PersonalityTraits Traits { get; set; }
+		public Personality Personality { get; set; }
 		public Apperance Apperance {get;set;}
 
 		public CombatAbilities Combat { get; internal set; } = new();

@@ -8,6 +8,10 @@ namespace CharacterDosier.DAL.Models
 		public int Modifier { get => (int)Math.Floor((decimal) (Value - 10) / 2); }
 		public bool HasSavingThrow { get; set; }
 
+		public AbilityModel()
+		{
+
+		}
 		internal AbilityModel(Ability type,int value = 10,bool hasSaving=false)
 		{
 			Type = type;
