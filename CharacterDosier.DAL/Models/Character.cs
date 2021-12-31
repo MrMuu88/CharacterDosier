@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CharacterDosier.DAL.Models
 {
-	public class Character : BaseModel
+	public partial class Character : BaseModel
 	{
 		public string Name { get; set; }
 		public int Level { get; set; }
@@ -14,15 +15,13 @@ namespace CharacterDosier.DAL.Models
 
 		public int Inpiration { get; set; }
 		public int Proficency { get; set; }
+		public PersonalityTraits Traits { get; set; }
+		public Apperance Apperance {get;set;}
 
 		public Combat Combat { get; internal set; } = new();
 		public Health Health { get; internal set; } = new();
 		public SpellCasting SpellCasting { get; internal set; } = new();
 
-		public List<string> Traits { get; private set; } = new();
-		public List<string> Ideals { get; private set; } = new();
-		public List<string> Bonds { get; private set; } = new();
-		public List<string> Flaws { get; private set; } = new();
 		
 		public List<Feature> Features { get; private set; } = new();
 		public List<string> Proficiencies { get; private set; } = new();
@@ -46,7 +45,6 @@ namespace CharacterDosier.DAL.Models
 		public Wealth Wealth { get; internal set; } = new();
 
 		public List<Equipment> Equipment { get;internal set; } = new();
-
 	}
 
 }
